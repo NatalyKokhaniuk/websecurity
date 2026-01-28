@@ -1,0 +1,108 @@
+### 1. ACCESS A PUBLIC ENDPOINT (SUCCESS)
+# Expected: 200 OK
+GET http://localhost:8080/index.html
+Accept: text/html
+
+### 2. ATTEMPT TO ACCESS SECURED ENDPOINT WITH NO CREDENTIALS (FAILURE)
+# Expected: 401 Unauthorized
+GET http://localhost:8080/api/v1/weapons
+Accept: application/json
+
+### 3. ATTEMPT TO ACCESS SECURED ENDPOINT WITH BAD CREDENTIALS (FAILURE)
+# Expected: 401 Unauthorized
+GET http://localhost:8080/api/v1/weapons
+Authorization: Basic baduser badpassword
+Accept: application/json
+
+### 4. USER ACCESSES THEIR OWN HELLO ENDPOINT (SUCCESS)
+# Expected: 200 OK
+GET http://localhost:8080/api/v1/items/hello/user
+Authorization: Basic user user
+Accept: application/json
+
+### 5. USER ATTEMPTS TO ACCESS ADMIN HELLO ENDPOINT (FAILURE)
+# Expected: 403 Forbidden
+GET http://localhost:8080/api/v1/items/hello/admin
+Authorization: Basic user user
+Accept: application/json
+
+### 6. USER ACCESSES A GENERAL WEAPONS ENDPOINT (SUCCESS)
+# Expected: 200 OK
+GET http://localhost:8080/api/v1/weapons
+Authorization: Basic user user
+Accept: application/json
+
+### 7. USER CREATES A WEAPON (SUCCESS)
+# Expected: 200 OK or 201 Created
+POST http://localhost:8080/api/v1/weapons
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "name": "Glock 19",
+  "category": "Pistol"
+}
+
+### 8. ADMIN ACCESSES THEIR OWN HELLO ENDPOINT (SUCCESS)
+# Expected: 200 OK
+GET http://localhost:8080/api/v1/items/hello/admin
+Authorization: Basic admin admin
+Accept: application/json
+
+### 9. ADMIN ATTEMPTS TO ACCESS USER HELLO ENDPOINT (FAILURE)
+# Expected: 403 Forbidden
+GET http://localhost:8080/api/v1/items/hello/user
+Authorization: Basic admin admin
+Accept: application/json
+
+### 10. ADMIN DELETES A WEAPON (SUCCESS)
+# Expected: 200 OK or 204 No Content
+DELETE http://localhost:8080/api/v1/weapons/1
+Authorization: Basic admin admin
+Accept: application/json
+
+### 11. ADMIN UPDATES A WEAPON (SUCCESS)
+# Expected: 200 OK
+PUT http://localhost:8080/api/v1/weapons
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name": "Bohdana 2.0",
+  "category": "Self-propelled artillery"
+}
+
+### 12. SUPERADMIN ACCESSES THEIR OWN HELLO ENDPOINT (SUCCESS)
+# Expected: 200 OK
+GET http://localhost:8080/api/v1/items/hello/superadmin
+Authorization: Basic superadmin superadmin
+Accept: application/json
+
+### 13. SUPERADMIN ATTEMPTS TO ACCESS ADMIN HELLO ENDPOINT (FAILURE)
+# Expected: 403 Forbidden
+GET http://localhost:8080/api/v1/items/hello/admin
+Authorization: Basic superadmin superadmin
+Accept: application/json
+
+### 14. SUPERADMIN ATTEMPTS TO ACCESS USER HELLO ENDPOINT (FAILURE)
+# Expected: 403 Forbidden
+GET http://localhost:8080/api/v1/items/hello/user
+Authorization: Basic superadmin superadmin
+Accept: application/json
+
+### 15. SUPERADMIN GETS ALL WEAPONS (SUCCESS)
+# Expected: 200 OK
+GET http://localhost:8080/api/v1/weapons
+Authorization: Basic superadmin superadmin
+Accept: application/json
+
+### 16. ATTEMPT TO CREATE WEAPON WITH NO CREDENTIALS (FAILURE)
+# Expected: 401 Unauthorized
+POST http://localhost:8080/api/v1/weapons
+Content-Type: application/json
+
+{
+  "name": "Stealth Fighter",
+  "category": "Aircraft"
+}

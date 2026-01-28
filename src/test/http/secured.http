@@ -1,0 +1,57 @@
+### GET ALL WEAPONS
+GET http://localhost:8080/api/v1/weapons
+Authorization: Basic admin admin
+Accept: application/json
+
+### GET ALL WEAPONS BAD CREDENTIALS
+GET http://localhost:8080/api/v1/weapons
+Authorization: Basic notadmin surelynotadmin
+Accept: application/json
+
+### GET ONE WEAPON
+GET http://localhost:8080/api/v1/weapons/3
+Authorization: Basic admin admin
+Accept: application/json
+
+### GET HELLO FOR USER
+GET http://localhost:8080/api/v1/weapons/hello/user
+Authorization: Basic admin admin
+Accept: application/json
+
+### GET HELLO FOR ADMIN
+GET http://localhost:8080/api/v1/weapons/hello/admin
+Authorization: Basic admin admin
+Accept: application/json
+
+### GET HELLO FOR UNKNOWN
+GET http://localhost:8080/api/v1/weapons/hello/unknown
+Authorization: Basic admin admin
+Accept: application/json
+
+### CREATE ONE WEAPON
+POST http://localhost:8080/api/v1/weapons
+Authorization: Basic admin admin
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Browning",
+  "category": "Gun"
+}
+
+### UPDATE ONE WEAPON
+PUT http://localhost:8080/api/v1/weapons
+Authorization: Basic admin admin
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "3",
+  "name": "Browning",
+  "category": "Machine gun"
+}
+
+### DELETE ONE WEAPON
+DELETE http://localhost:8080/api/v1/weapons/3
+Authorization: Basic admin admin
+Accept: application/json
