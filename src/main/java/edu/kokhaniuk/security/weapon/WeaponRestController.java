@@ -1,11 +1,11 @@
 package edu.kokhaniuk.security.weapon;
 
 /*
-  @author nataly
+  @author eugen
   @project security
   @class WeaponRestController
   @version 1.0.0
-  @since 12/30/2025 - 11.52
+  @since 9/30/2025 - 11.52
 */
 
 import lombok.AllArgsConstructor;
@@ -43,5 +43,20 @@ public class WeaponRestController {
     @PutMapping
     public Weapon update(@RequestBody Weapon Weapon) {
         return service.update(Weapon);
+    }
+
+    @GetMapping("/hello/user")
+    public String helloUser() {
+        return "Hello User!";
+    }
+
+    @GetMapping("hello/admin")
+    public String helloAdmin() {
+        return "Hello Admin!";
+    }
+
+    @GetMapping("hello/unknown")
+    public String helloUnknown() {
+        return "Hello Unknown!";
     }
 }
