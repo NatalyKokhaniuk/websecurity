@@ -5,7 +5,7 @@ package edu.kokhaniuk.security.weapon;
   @project security
   @class Weapon
   @version 1.0.0
-  @since 12/30/2025 - 11.45
+  @since 12/30/2025 - 11.42
 */
 
 import lombok.*;
