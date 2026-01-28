@@ -27,6 +27,7 @@ public class WeaponService {
         weapons.add(new Weapon("1", "AR-15", "Assault rifle"));
         weapons.add(new Weapon("2", "Bohdana", "Self-propelled artillery"));
         weapons.add(new Weapon("3", "Sting", "Anti-aircraft FPV drone"));
+        repository.deleteAll();
         repository.saveAll(weapons);
     }
 
