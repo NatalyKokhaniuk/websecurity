@@ -5,7 +5,7 @@ package edu.kokhaniuk.security.weapon;
   @project security
   @class WeaponRestController
   @version 1.0.0
-  @since 12/30/2025 - 11.52
+  @since 12/30/2025 - 11.45
 */
 
 import lombok.AllArgsConstructor;
