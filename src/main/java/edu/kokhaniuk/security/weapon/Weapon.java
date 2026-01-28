@@ -1,11 +1,11 @@
 package edu.kokhaniuk.security.weapon;
 
 /*
-  @author nataly
+  @author eugen
   @project security
   @class Weapon
   @version 1.0.0
-  @since 12/30/2025 - 11.45
+  @since 9/30/2025 - 11.42
 */
 
 import lombok.*;

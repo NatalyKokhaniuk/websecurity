@@ -1,11 +1,11 @@
 package edu.kokhaniuk.security.weapon;
 
 /*
-  @author nataly
+  @author eugen
   @project security
   @class WeaponService
   @version 1.0.0
-  @since 12/30/2025 - 11.46
+  @since 9/30/2025 - 11.46
 */
 
 import jakarta.annotation.PostConstruct;
@@ -27,6 +27,7 @@ public class WeaponService {
         weapons.add(new Weapon("1", "AR-15", "Assault rifle"));
         weapons.add(new Weapon("2", "Bohdana", "Self-propelled artillery"));
         weapons.add(new Weapon("3", "Sting", "Anti-aircraft FPV drone"));
+        repository.deleteAll();
         repository.saveAll(weapons);
     }
 
